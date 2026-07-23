@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#050505" />
-  <title>Undangan Ulang Tahun | Abiescc</title>
+  <title>Acara | Putu Heri</title>
+
   <style>
     :root {
       --black: #050505;
@@ -66,7 +67,6 @@
       transform: translate(-50%, -50%);
       pointer-events: none;
       z-index: -1;
-      transition: opacity .25s;
     }
 
     .music-btn {
@@ -116,8 +116,16 @@
     }
 
     @keyframes intro {
-      from { opacity: 0; transform: translateY(28px) scale(.98); filter: blur(8px); }
-      to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(.98);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
     }
 
     .eyebrow {
@@ -160,7 +168,7 @@
     }
 
     .hero-desc {
-      width: min(610px, 100%);
+      width: min(620px, 100%);
       margin: 30px auto 0;
       color: #b7b7bd;
       line-height: 1.8;
@@ -305,6 +313,8 @@
       flex-direction: column;
       justify-content: space-between;
       transition: .35s ease;
+      color: inherit;
+      text-decoration: none;
     }
 
     .detail:hover {
@@ -359,6 +369,75 @@
       font-size: .64rem;
     }
 
+    .food-card {
+      text-align: center;
+    }
+
+    .food-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .food-item {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(0,0,0,.24);
+    }
+
+    .food-item b {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .food-item p {
+      color: #9a9aa1;
+      line-height: 1.7;
+    }
+
+    .location-box {
+      display: block;
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 24px;
+      color: inherit;
+      text-decoration: none;
+      text-align: left;
+      background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.3);
+      transition: .35s ease;
+    }
+
+    .location-box:hover {
+      transform: translateY(-6px);
+      border-color: white;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+
+    .location-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .location-box p {
+      color: #c1c1c6;
+      line-height: 1.7;
+    }
+
+    .location-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #fff;
+      font-weight: 700;
+    }
+
     .quote {
       text-align: center;
       padding: 100px 24px;
@@ -389,46 +468,42 @@
       margin: 0 auto 30px;
     }
 
-    .rsvp-btn {
+    .button-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
       min-width: 210px;
       padding: 16px 28px;
-      border: 1px solid white;
       border-radius: 999px;
-      color: #050505;
-      background: #f7f7f8;
       text-decoration: none;
       font-weight: 700;
       letter-spacing: .03em;
-      position: relative;
-      overflow: hidden;
       transition: .3s ease;
     }
 
-    .rsvp-btn::after {
-      content: "";
-      position: absolute;
-      width: 70px;
-      height: 170%;
-      top: -35%;
-      left: -100px;
-      background: rgba(255,255,255,.6);
-      transform: rotate(18deg);
-      transition: left .55s ease;
+    .btn-primary {
+      border: 1px solid white;
+      color: #050505;
+      background: #f7f7f8;
     }
 
-    .rsvp-btn:hover {
-      color: white;
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.4);
+      color: #fff;
       background: transparent;
+    }
+
+    .btn:hover {
       transform: translateY(-4px);
       box-shadow: 0 14px 40px rgba(255,255,255,.12);
-    }
-
-    .rsvp-btn:hover::after {
-      left: 120%;
     }
 
     footer {
@@ -439,23 +514,34 @@
     }
 
     @media (max-width: 760px) {
-      .details-grid { grid-template-columns: 1fr; }
-      .detail { min-height: 130px; }
-      .countdown { grid-template-columns: repeat(2, 1fr); }
-      .hero { padding-top: 100px; }
-      h1 { font-size: clamp(3.6rem, 21vw, 6.5rem); }
-      .cursor-glow { display: none; }
-    }
+      .details-grid,
+      .food-list {
+        grid-template-columns: 1fr;
+      }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
+      .detail {
+        min-height: 130px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
+      h1 {
+        font-size: clamp(3.6rem, 21vw, 6.5rem);
+      }
+
+      .cursor-glow {
+        display: none;
       }
     }
   </style>
 </head>
+
 <body>
   <canvas id="particles"></canvas>
   <div class="cursor-glow" id="cursorGlow"></div>
@@ -467,17 +553,20 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="eyebrow">You Are Invited</div>
+
       <h1>
-        Birthday
-        <span class="outline">Party</span>
+        Acara
+        <span class="outline">Putu Heri</span>
       </h1>
+
       <p class="hero-desc">
-        Satu malam, satu cerita, dan banyak kenangan. Kehadiranmu akan membuat
-        perayaan ulang tahunku menjadi lebih berarti.
+        Mari berkumpul dalam suasana santai untuk makan-makan,
+        minum bersama, ngobrol, dan menikmati waktu bersama.
       </p>
+
       <div class="date-pill">
         <span></span>
-        Sabtu, 15 Agustus 2026 • 19.00 WITA
+        Kamis, 30 Juli 2026 • 17.00 WITA
       </div>
     </div>
 
@@ -490,12 +579,12 @@
   <main>
     <section class="section reveal">
       <article class="card">
-        <div class="section-label">Save the date</div>
-        <h2>Mari merayakan bersama.</h2>
+        <div class="section-label">Detail acara</div>
+        <h2>Mari berkumpul bersama.</h2>
+
         <p style="color:#aaaab0; line-height:1.8; max-width:720px;">
-          Dengan penuh kebahagiaan, saya mengundang teman-teman untuk hadir
-          dalam acara ulang tahun saya. Datanglah dengan senyum terbaikmu dan
-          jadilah bagian dari momen spesial ini.
+          Dengan senang hati, Putu Heri mengundang teman-teman
+          untuk hadir dalam acara santai makan dan minum bersama.
         </p>
 
         <div class="details-grid">
@@ -506,28 +595,74 @@
               <strong>17.00 WITA – Selesai</strong>
             </div>
           </div>
+
           <div class="detail">
             <div class="icon">◇</div>
             <div>
               <small>Tanggal</small>
-              <strong>Kamis, 30 Juli 2026 • 17.00 WITA</strong>
+              <strong>Kamis, 30 Juli 2026</strong>
             </div>
           </div>
-          <div class="detail">
+
+          <a
+            class="detail"
+            href="https://maps.app.goo.gl/eZY1oh8XssfxsvJt5"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="icon">⌖</div>
             <div>
               <small>Lokasi</small>
-              <strong>Isi lokasi acara di sini</strong>
+              <strong>Klik untuk buka Google Maps</strong>
             </div>
-          </div>
+          </a>
         </div>
       </article>
     </section>
 
     <section class="section reveal">
+      <article class="card food-card">
+        <div class="section-label">Tentang acara</div>
+        <h2>Makan & Minum Bersama</h2>
+
+        <div class="food-list">
+          <div class="food-item">
+            <b>🍽️ Makan Bersama</b>
+            <p>Menikmati makanan sambil ngobrol santai bersama teman-teman.</p>
+          </div>
+
+          <div class="food-item">
+            <b>🥤 Minum Bersama</b>
+            <p>Menikmati minuman dan suasana santai sampai acara selesai.</p>
+          </div>
+        </div>
+
+        <a
+          class="location-box"
+          href="https://maps.app.goo.gl/eZY1oh8XssfxsvJt5"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="location-head">
+            <span>📍</span>
+            <span>Lokasi Acara</span>
+          </div>
+
+          <p>
+            Tekan bagian ini untuk melihat lokasi lengkap dan petunjuk arah
+            melalui Google Maps.
+          </p>
+
+          <span class="location-link">Buka lokasi sekarang →</span>
+        </a>
+      </article>
+    </section>
+
+    <section class="section reveal">
       <article class="card">
-        <div class="section-label">Counting down</div>
-        <h2>Menuju hari spesial.</h2>
+        <div class="section-label">Hitung mundur</div>
+        <h2>Menuju hari acara.</h2>
+
         <div class="countdown" id="countdown">
           <div class="time-box"><b id="days">00</b><span>Hari</span></div>
           <div class="time-box"><b id="hours">00</b><span>Jam</span></div>
@@ -538,38 +673,49 @@
     </section>
 
     <section class="quote reveal">
-      <p>Usia bertambah, cerita berlanjut, dan kebahagiaan terasa lengkap saat dibagikan.</p>
+      <p>Makanan terasa lebih nikmat saat dinikmati bersama orang-orang terdekat.</p>
     </section>
 
     <section class="section reveal">
       <article class="card rsvp-card">
         <div class="section-label">Konfirmasi kehadiran</div>
         <h2>Apakah kamu akan hadir?</h2>
+
         <p>
-          Klik tombol di bawah untuk mengirim konfirmasi langsung melalui
-          WhatsApp. Pesan konfirmasi sudah disiapkan secara otomatis.
+          Klik tombol di bawah untuk mengirim konfirmasi langsung melalui WhatsApp
+          atau membuka lokasi acara.
         </p>
-        <a
-          class="rsvp-btn"
-          id="rsvpBtn"
-          href="https://wa.me/6281933066445?text=Halo%2C%20saya%20akan%20hadir%20di%20acara%20ulang%20tahunmu.%20Terima%20kasih%20atas%20undangannya!"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>✓</span> Saya Akan Hadir
-        </a>
+
+        <div class="button-row">
+          <a
+            class="btn btn-primary"
+            id="rsvpBtn"
+            href="https://wa.me/6281933066445?text=Saya%20akan%20hadir%20di%20acara%20Putu%20Heri"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ✓ Saya Akan Hadir
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="https://maps.app.goo.gl/eZY1oh8XssfxsvJt5"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📍 Lihat Lokasi
+          </a>
+        </div>
       </article>
     </section>
 
     <footer>
-      create by abiessc (vibe coding)
+      Acara | Putu Heri • 2026
     </footer>
   </main>
 
   <script>
-    // ===== Countdown =====
-    // Ubah tanggal acara di bawah ini bila diperlukan.
-   const eventDate = new Date("2026-07-30T17:00:00+08:00").getTime();
+    const eventDate = new Date("2026-07-30T17:00:00+08:00").getTime();
 
     function updateCountdown() {
       const distance = eventDate - Date.now();
@@ -581,32 +727,39 @@
         return;
       }
 
-      el("days").textContent = String(Math.floor(distance / 86400000)).padStart(2, "0");
-      el("hours").textContent = String(Math.floor((distance % 86400000) / 3600000)).padStart(2, "0");
-      el("minutes").textContent = String(Math.floor((distance % 3600000) / 60000)).padStart(2, "0");
-      el("seconds").textContent = String(Math.floor((distance % 60000) / 1000)).padStart(2, "0");
+      el("days").textContent =
+        String(Math.floor(distance / 86400000)).padStart(2, "0");
+
+      el("hours").textContent =
+        String(Math.floor((distance % 86400000) / 3600000)).padStart(2, "0");
+
+      el("minutes").textContent =
+        String(Math.floor((distance % 3600000) / 60000)).padStart(2, "0");
+
+      el("seconds").textContent =
+        String(Math.floor((distance % 60000) / 1000)).padStart(2, "0");
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // ===== Scroll Reveal =====
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
       });
     }, { threshold: 0.14 });
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-    // ===== Cursor glow =====
     const glow = document.getElementById("cursorGlow");
+
     window.addEventListener("pointermove", e => {
       glow.style.left = e.clientX + "px";
       glow.style.top = e.clientY + "px";
     });
 
-    // ===== Particles =====
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
     let particles = [];
@@ -616,9 +769,11 @@
       canvas.height = innerHeight * devicePixelRatio;
       canvas.style.width = innerWidth + "px";
       canvas.style.height = innerHeight + "px";
+
       ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
 
       const count = Math.min(90, Math.floor(innerWidth / 18));
+
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * innerWidth,
         y: Math.random() * innerHeight,
@@ -631,6 +786,7 @@
 
     function animateParticles() {
       ctx.clearRect(0, 0, innerWidth, innerHeight);
+
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
@@ -639,6 +795,7 @@
           p.y = innerHeight + 5;
           p.x = Math.random() * innerWidth;
         }
+
         if (p.x < -5) p.x = innerWidth + 5;
         if (p.x > innerWidth + 5) p.x = -5;
 
@@ -647,6 +804,7 @@
         ctx.fillStyle = `rgba(255,255,255,${p.a})`;
         ctx.fill();
       }
+
       requestAnimationFrame(animateParticles);
     }
 
@@ -654,30 +812,40 @@
     animateParticles();
     addEventListener("resize", resizeCanvas);
 
-    // ===== Sound effects + ambient music using Web Audio API =====
     let audioCtx;
     let musicPlaying = false;
     let musicTimer;
+
     const musicBtn = document.getElementById("musicBtn");
 
     function ensureAudio() {
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
-      if (audioCtx.state === "suspended") audioCtx.resume();
+
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
     }
 
     function clickSound(frequency = 520, duration = .08, volume = .035) {
       ensureAudio();
+
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
 
       osc.type = "sine";
       osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(frequency * 1.3, audioCtx.currentTime + duration);
+      osc.frequency.exponentialRampToValueAtTime(
+        frequency * 1.3,
+        audioCtx.currentTime + duration
+      );
 
       gain.gain.setValueAtTime(volume, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(.0001, audioCtx.currentTime + duration);
+      gain.gain.exponentialRampToValueAtTime(
+        .0001,
+        audioCtx.currentTime + duration
+      );
 
       osc.connect(gain).connect(audioCtx.destination);
       osc.start();
@@ -686,16 +854,19 @@
 
     function playAmbientNote() {
       if (!musicPlaying) return;
+
       ensureAudio();
 
       const notes = [130.81, 164.81, 196.00, 246.94, 261.63];
       const frequency = notes[Math.floor(Math.random() * notes.length)];
+
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       const filter = audioCtx.createBiquadFilter();
 
       osc.type = "sine";
       osc.frequency.value = frequency;
+
       filter.type = "lowpass";
       filter.frequency.value = 650;
 
@@ -712,6 +883,7 @@
 
     musicBtn.addEventListener("click", () => {
       clickSound(680, .1, .04);
+
       musicPlaying = !musicPlaying;
       musicBtn.classList.toggle("playing", musicPlaying);
       musicBtn.textContent = musicPlaying ? "Ⅱ" : "♫";
@@ -726,7 +898,9 @@
 
     document.querySelectorAll("a, button, .detail").forEach(el => {
       el.addEventListener("pointerdown", () => {
-        if (el !== musicBtn) clickSound();
+        if (el !== musicBtn) {
+          clickSound();
+        }
       });
     });
 
