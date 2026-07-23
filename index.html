@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Website portofolio elegan dengan penyimpanan file lokal dan menu pembayaran." />
+  <title>Orielness — Elegant Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <audio id="clickSound" preload="auto">
+    <source src="assets/click.wav" type="audio/wav">
+  </audio>
+  <audio id="successSound" preload="auto">
+    <source src="assets/success.wav" type="audio/wav">
+  </audio>
+
+  <header class="navbar glass">
+    <a href="#home" class="brand sound-trigger">
+      <span class="brand-mark">O</span>
+      <span>ORIELNESS</span>
+    </a>
+
+    <nav>
+      <a href="#portfolio" class="nav-link sound-trigger active">Portofolio</a>
+      <a href="#storage" class="nav-link sound-trigger">Penyimpan File</a>
+      <a href="#payment" class="nav-link sound-trigger">Payment</a>
+    </nav>
+
+    <button class="sound-toggle sound-trigger" id="soundToggle" aria-label="Aktifkan atau nonaktifkan suara">
+      <span id="soundIcon">🔊</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="hero-grid"></div>
+
+      <div class="hero-content reveal">
+        <span class="eyebrow">CREATIVE DIGITAL PORTFOLIO</span>
+        <h1>Membuat karya digital yang <span>elegan</span>, modern, dan berkesan.</h1>
+        <p>
+          Selamat datang di ruang kreatif saya. Jelajahi portofolio, simpan file secara lokal,
+          dan akses informasi pembayaran dengan tampilan premium.
+        </p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary sound-trigger">Lihat Karya <span>↗</span></a>
+          <a href="#payment" class="btn btn-secondary sound-trigger">Menu Payment</a>
+        </div>
+
+        <div class="hero-stats">
+          <div><strong>24+</strong><span>Project</span></div>
+          <div><strong>4.9</strong><span>Rating</span></div>
+          <div><strong>100%</strong><span>Dedikasi</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card-wrap reveal delay">
+        <div class="hero-card glass tilt-card">
+          <div class="card-badge">AVAILABLE FOR PROJECT</div>
+          <div class="portrait">
+            <div class="portrait-ring"></div>
+            <div class="portrait-letter">O</div>
+          </div>
+          <h3>Orielness Studio</h3>
+          <p>Web Designer · UI Creator · Digital Artist</p>
+          <div class="social-row">
+            <a href="#" class="social sound-trigger">IG</a>
+            <a href="#" class="social sound-trigger">WA</a>
+            <a href="#" class="social sound-trigger">TT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="section-heading reveal">
+        <span class="eyebrow">SELECTED WORKS</span>
+        <h2>Portofolio Pilihan</h2>
+        <p>Beberapa konsep karya digital dengan visual modern dan detail yang kuat.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal tilt-card">
+          <div class="project-visual visual-one">
+            <span>01</span>
+            <div class="floating-shape shape-a"></div>
+            <div class="floating-shape shape-b"></div>
+          </div>
+          <div class="project-info">
+            <div>
+              <span class="project-type">Web Design</span>
+              <h3>Luxury Fashion Landing Page</h3>
+            </div>
+            <button class="round-btn sound-trigger">↗</button>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay tilt-card">
+          <div class="project-visual visual-two">
+            <span>02</span>
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div class="phone-screen"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div>
+              <span class="project-type">Mobile UI</span>
+              <h3>Finance App Interface</h3>
+            </div>
+            <button class="round-btn sound-trigger">↗</button>
+          </div>
+        </article>
+
+        <article class="project-card reveal tilt-card">
+          <div class="project-visual visual-three">
+            <span>03</span>
+            <div class="logo-symbol">O</div>
+          </div>
+          <div class="project-info">
+            <div>
+              <span class="project-type">Brand Identity</span>
+              <h3>Orielness Visual System</h3>
+            </div>
+            <button class="round-btn sound-trigger">↗</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section storage-section" id="storage">
+      <div class="section-heading reveal">
+        <span class="eyebrow">LOCAL STORAGE TOOL</span>
+        <h2>Penyimpan File</h2>
+        <p>Tambahkan file ke daftar lokal pada browser. File tidak diunggah ke server.</p>
+      </div>
+
+      <div class="storage-layout">
+        <div class="upload-panel glass reveal">
+          <div class="upload-zone" id="dropZone">
+            <input type="file" id="fileInput" multiple hidden />
+            <div class="upload-icon">⇧</div>
+            <h3>Tarik file ke sini</h3>
+            <p>atau klik tombol untuk memilih file</p>
+            <button class="btn btn-primary sound-trigger" id="chooseFile">Pilih File</button>
+            <small>Maksimal rekomendasi 10 MB per file</small>
+          </div>
+        </div>
+
+        <div class="file-panel glass reveal delay">
+          <div class="panel-title">
+            <div>
+              <span class="eyebrow">YOUR FILES</span>
+              <h3>Daftar File Tersimpan</h3>
+            </div>
+            <button class="clear-btn sound-trigger" id="clearFiles">Hapus Semua</button>
+          </div>
+          <div class="file-list" id="fileList">
+            <div class="empty-state">
+              <span>◇</span>
+              <p>Belum ada file tersimpan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section payment-section" id="payment">
+      <div class="section-heading reveal">
+        <span class="eyebrow">EASY PAYMENT</span>
+        <h2>Menu Payment</h2>
+        <p>Pilih metode pembayaran yang tersedia dan salin detail dengan satu klik.</p>
+      </div>
+
+      <div class="payment-grid">
+        <article class="payment-card glass reveal">
+          <div class="payment-logo">DANA</div>
+          <span class="payment-label">E-Wallet</span>
+          <h3>0812 3456 7890</h3>
+          <p>a.n. Orielness Studio</p>
+          <button class="copy-btn sound-trigger" data-copy="081234567890">Salin Nomor</button>
+        </article>
+
+        <article class="payment-card glass reveal delay">
+          <div class="payment-logo">OVO</div>
+          <span class="payment-label">E-Wallet</span>
+          <h3>0812 3456 7890</h3>
+          <p>a.n. Orielness Studio</p>
+          <button class="copy-btn sound-trigger" data-copy="081234567890">Salin Nomor</button>
+        </article>
+
+        <article class="payment-card glass reveal">
+          <div class="payment-logo bank">BCA</div>
+          <span class="payment-label">Bank Transfer</span>
+          <h3>123 456 7890</h3>
+          <p>a.n. Orielness Studio</p>
+          <button class="copy-btn sound-trigger" data-copy="1234567890">Salin Rekening</button>
+        </article>
+
+        <article class="payment-card qr-card glass reveal delay">
+          <div class="qr-placeholder">
+            <div class="qr-grid"></div>
+            <span>QRIS</span>
+          </div>
+          <div>
+            <span class="payment-label">Scan Payment</span>
+            <h3>QRIS All Payment</h3>
+            <p>Ganti kotak QR dengan QRIS milik Anda.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="payment-note glass reveal">
+        <span>✦</span>
+        <p>Konfirmasi pembayaran melalui WhatsApp setelah transaksi berhasil.</p>
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-primary sound-trigger">Konfirmasi WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <a href="#home" class="brand sound-trigger">
+        <span class="brand-mark">O</span>
+        <span>ORIELNESS</span>
+      </a>
+      <p>Designed with elegance and interaction.</p>
+    </div>
+    <span>© 2026 Orielness Studio</span>
+  </footer>
+
+  <div class="toast" id="toast">Berhasil disalin!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
